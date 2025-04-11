@@ -63,16 +63,25 @@ const testimonialSwiper = new Swiper(".testimonialSwiper", {
 // Theme Toggle
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
+const logo = document.querySelector('.company-logo');
+const darkLogoSrc = logo.getAttribute('data-logo-dark');
+const lightLogoSrc = 'Assets/logo-black.png';
+
+function switchLogo(isDark) {
+    logo.src = isDark ? darkLogoSrc : lightLogoSrc;
+}
 
 themeToggle.addEventListener('click', () => {
     if (body.classList.contains('light-theme')) {
         body.classList.remove('light-theme');
         body.classList.add('dark-theme');
         localStorage.setItem('theme', 'dark');
+        switchLogo(true);
     } else {
         body.classList.remove('dark-theme');
         body.classList.add('light-theme');
         localStorage.setItem('theme', 'light');
+        switchLogo(false);
     }
 });
 
@@ -80,4 +89,5 @@ themeToggle.addEventListener('click', () => {
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'light';
     body.classList.add(`${savedTheme}-theme`);
+    switchLogo(savedTheme === 'dark');
 });

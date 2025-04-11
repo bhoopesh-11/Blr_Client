@@ -16,7 +16,7 @@ html {
 
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: 'Noto Serif', serif;
     transition: background-color 0.3s, color 0.3s;
 }
 
@@ -260,8 +260,9 @@ section {
     border-radius: var(--border-radius);
     background-color: var(--card-bg-light);
     box-shadow: 0 4px 6px var(--shadow-light);
-    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, opacity 0.8s ease-out, transform 0.8s ease-out;
     min-height: fit-content;
+    will-change: opacity, transform;
 }
 
 body.dark-theme section {
@@ -321,7 +322,7 @@ body.dark-theme .service-card:hover {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 1.5rem;
-    font-family: 'Baumans', cursive;
+    font-family: 'Noto Serif', serif;
 }
 
 .about-main {
@@ -358,6 +359,7 @@ body.dark-theme .service-card:hover {
 .about-header h2 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
+    font-family: 'Noto Serif', serif;
 }
 
 .about-intro {
@@ -396,6 +398,7 @@ body.dark-theme .service-card:hover {
 .about-content h3 {
     font-size: 1.3rem;
     margin-bottom: 0.75rem;
+    font-family: 'Noto Serif', serif;
 }
 
 .about-content p {
@@ -433,7 +436,7 @@ body.dark-theme .service-card:hover {
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
     color: var(--text-light);
-    font-family: 'Baumans', cursive;
+    font-family: 'Noto Serif', serif;
 }
 
 body.dark-theme .about-content h3 {
@@ -487,7 +490,7 @@ body.dark-theme .about-content h3 {
 .service-card h3 {
     font-size: 1.5rem;
     margin: 1rem 0;
-    font-family: 'Baumans', cursive;
+    font-family: 'Noto Serif', serif;
 }
 
 .service-card p {
@@ -522,12 +525,17 @@ body.dark-theme .service-card p {
 
 .contact-section {
     text-align: center;
-    padding: 6rem 2rem;
+    padding: 4rem 2rem;
     background: linear-gradient(to bottom right, var(--card-bg-light), #f8f9fa);
+    max-width: 1400px;
+    margin: 2rem auto;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px var(--shadow-light);
 }
 
 body.dark-theme .contact-section {
     background: linear-gradient(to bottom right, var(--card-bg-dark), #1a1a1c);
+    box-shadow: 0 4px 6px var(--shadow-dark);
 }
 
 .contact-intro {
@@ -540,25 +548,25 @@ body.dark-theme .contact-section {
 }
 
 .contact-container {
-    max-width: 1200px;
-    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 2rem;
     align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .contact-info {
     text-align: left;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.8);
     border-radius: var(--border-radius);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 body.dark-theme .contact-info {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .info-item {
@@ -566,31 +574,22 @@ body.dark-theme .contact-info {
     align-items: center;
     gap: 1rem;
     margin-bottom: 1.5rem;
-    padding: 1rem;
-    border-radius: var(--border-radius);
-    transition: transform 0.3s ease;
-}
-
-.info-item:hover {
-    transform: translateX(10px);
-}
-
-.info-item i {
-    font-size: 1.5rem;
-    color: #c82333;
-    flex-shrink: 0;
-}
-
-.info-item p {
-    margin: 0;
     font-size: 1.1rem;
 }
 
 .contact-map {
-    margin-top: 2rem;
+    margin-top: 3rem;
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 350px;  /* Taller map */
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .contact-form {
@@ -742,6 +741,49 @@ social-links a:hover {
     display: flex;
     align-items: center;
     gap: 1rem;
+    flex-shrink: 0;  /* Prevent container from shrinking */
+    white-space: nowrap;  /* Prevent text wrapping */
+}
+
+.company-logo {
+    height: 40px;
+    width: auto;
+    min-width: 40px;  /* Ensure minimum width */
+    object-fit: contain;
+}
+
+.company-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap;  /* Prevent text wrapping */
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.8rem 1.5rem;
+        min-width: auto;  /* Allow navbar to be smaller on mobile */
+        width: 90%;  /* Use percentage width on mobile */
+    }
+    
+    .nav-links {
+        gap: 0.2rem;
+    }
+    
+    .nav-links a {
+        padding: 0.4rem 0.6rem;  /* Reduced padding */
+        font-size: 0.9rem;
+    }
+    
+    .company-logo {
+        height: 35px;  /* Slightly smaller logo */
+        min-width: 35px;
+    }
+    
+    .company-name {
+        font-size: 1.2rem;  /* Slightly smaller text */
+    }
 }
 
 .company-logo {
@@ -1013,7 +1055,7 @@ body.dark-theme .about-content h3 {
     font-size: 36px;
     margin-bottom: 40px;
     font-weight: bold;
-    font-family: 'Baumans', cursive;
+    font-family: 'Noto Serif', serif;
   }
   
   .process-steps {
@@ -1222,4 +1264,239 @@ body.dark-theme .partner-card {
     .partners-grid {
         grid-template-columns: 1fr;
     }
+}
+
+.why-choose-us {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: var(--card-bg-light);
+    transition: background-color 0.3s;
+}
+
+body.dark-theme .why-choose-us {
+    background-color: var(--card-bg-dark);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+.feature-box {
+    background: var(--card-bg-light);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 25px var(--shadow-light);
+    transition: all 0.3s ease;
+}
+
+body.dark-theme .feature-box {
+    background: var(--card-bg-dark);
+    box-shadow: 0 10px 25px var(--shadow-dark);
+}
+
+.feature-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px var(--shadow-light);
+}
+
+body.dark-theme .feature-box:hover {
+    box-shadow: 0 15px 35px var(--shadow-dark);
+}
+
+.icon {
+    font-size: 2.5rem;
+    color: #c82333;
+    margin-bottom: 1rem;
+}
+
+.feature-box h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+    font-family: 'Noto Serif', serif;
+}
+
+body.dark-theme .feature-box h3 {
+    color: var(--text-dark);
+}
+
+.feature-box p {
+    font-size: 1rem;
+    color: var(--text-light);
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+body.dark-theme .feature-box p {
+    color: var(--text-dark);
+}
+
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Keep hero section heading bold */
+.hero-title {
+    font-weight: 700;
+}
+
+/* Make other section headings lighter */
+section:not(#home) h2 {
+    font-family: 'Noto Serif', serif;
+    font-weight: 600; /* Changed from 300 to 600 */
+    color: var(--text-light);
+    opacity: 0.90; /* Slightly adjusted opacity for better readability */
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    letter-spacing: -0.5px; /* Added for better typography */
+}
+
+section:not(#home) h3 {
+    font-family: 'Noto Serif', serif;
+    font-weight: 500; /* Changed from 300 to 500 */
+    color: var(--text-light);
+    opacity: 0.90;
+    letter-spacing: -0.3px; /* Added for better typography */
+}
+
+/* Update dark theme colors for bold headings */
+body.dark-theme section:not(#home) h2,
+body.dark-theme section:not(#home) h3 {
+    color: var(--text-dark);
+    opacity: 0.9; /* Slightly higher opacity for dark theme */
+}
+
+/* Scroll Reveal Animations */
+.reveal-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, transform;
+}
+
+.reveal-section.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.video-section {
+    padding: 0;
+    margin: 0;  /* Changed from 4rem auto */
+    overflow: hidden;
+    max-width: none;
+    background: none;
+    box-shadow: none;
+    border-radius: 0;  /* Remove border radius */
+}
+
+.video-container {
+    position: relative;
+    width: 100vw;  /* Changed to viewport width */
+    height: 50vh;  /* Increased height */
+    min-height: 500px;
+    overflow: hidden;
+    margin: 0;  /* Reset margin */
+    left: 50%;  /* Center the container */
+    right: 50%;  /* Center the container */
+    margin-left: -50vw;  /* Negative margin for full width */
+    margin-right: -50vw;  /* Negative margin for full width */
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.video-overlay h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: #ffffff !important;  /* Force white color */
+    font-weight: 700 !important;  /* Force bold weight */
+    opacity: 1 !important;  /* Force full opacity */
+    font-family: 'Baumans', cursive !important;  /* Force font family */
+}
+
+.video-overlay p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+    .video-container {
+        height: 40vh;
+    }
+    
+    .video-overlay h2 {
+        font-size: 2rem;
+    }
+    
+    .video-overlay p {
+        font-size: 1rem;
+    }
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin: 3rem 0;  /* More vertical spacing */
+    justify-content: center;
+}
+
+.social-icon {
+    width: 40px; /* Adjusted size */
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: none; /* Removed red background */
+    transition: all 0.3s ease;
+}
+
+.social-icon img {
+    width: 20px; /* Adjusted size */
+    height: 20px;
+    filter: none; /* Removed brightness and invert filters */
+}
+
+.social-icon:hover {
+    transform: translateY(-3px);
+    box-shadow: none; /* Removed hover shadow */
+}
+
+social-icon img {
+    width: 30px;  /* Larger icon images */
+    height: 30px;
+    filter: brightness(0) invert(1);
 }

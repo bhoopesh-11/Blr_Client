@@ -9,11 +9,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baumans&family=Emblema+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baumans&family=Emblema+One&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body class="light-theme">
     <nav class="navbar">
         <div class="logo-container">
-            <img src="Assets/logo.png" alt="Design Studio Logo" class="company-logo">
+            <img src="Assets/logo-black.png" alt="Design Studio Logo" class="company-logo" data-logo-dark="Assets/logo.png">
             <span class="company-name">WC Decor</span>
         </div>
         <div class="nav-links">
@@ -168,37 +169,92 @@
         </div>
     </section>
 
-    <section class="process-section">
-        <h2>Our Process to Transform Your Space</h2>
-        <div class="process-steps">
-          
-          <div class="step">
-            <div class="icon-circle icon-1"></div>
-            <h3>1. Design Consultation & Requirement Gathering</h3>
-            <p>We begin with understanding your lifestyle, space requirements, and budget preferences to create a tailored design solution just for you.</p>
-          </div>
-      
-          <div class="step">
-            <div class="icon-circle icon-2"></div>
-            <h3>2. Concept & Visual Presentation</h3>
-            <p>Our creative team prepares mood boards, layouts, and 3D views — so you can visualize how your dream space will look even before execution begins.</p>
-          </div>
-      
-          <div class="step">
-            <div class="icon-circle icon-3"></div>
-            <h3>3. Execution & On-site Implementation</h3>
-            <p>From modular furniture setup to lighting, decor, and detailing — our skilled team manages complete execution with perfection and professionalism.</p>
-          </div>
-      
-          <div class="step">
-            <div class="icon-circle icon-4"></div>
-            <h3>4. Styling, Finishing & Project Handover</h3>
-            <p>We style your space with thoughtful final touches, ensuring every detail is in place before the perfect handover of your ready-to-live space.</p>
-          </div>
-      
+    <section class="video-section">
+        <div class="video-container">
+            <video autoplay muted loop playsinline>
+                <source src="Assets/video.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay">
+                <h2>Experience Our Craft</h2>
+                <p>Watch our artisans transform spaces into masterpieces</p>
+            </div>
         </div>
-      </section>
+    </section>
+
+    <section class="process-section">
+        <div class="content-wrapper">
+            <h2>Our Process to Transform Your Space</h2>
+            <div class="process-steps">
       
+                <div class="step">
+                  <div class="icon-circle icon-1"></div>
+                  <h3>1. Design Consultation & Requirement Gathering</h3>
+                  <p>We begin with understanding your lifestyle, space requirements, and budget preferences to create a tailored design solution just for you.</p>
+                </div>
+            
+                <div class="step">
+                  <div class="icon-circle icon-2"></div>
+                  <h3>2. Concept & Visual Presentation</h3>
+                  <p>Our creative team prepares mood boards, layouts, and 3D views — so you can visualize how your dream space will look even before execution begins.</p>
+                </div>
+            
+                <div class="step">
+                  <div class="icon-circle icon-3"></div>
+                  <h3>3. Execution & On-site Implementation</h3>
+                  <p>From modular furniture setup to lighting, decor, and detailing — our skilled team manages complete execution with perfection and professionalism.</p>
+                </div>
+            
+                <div class="step">
+                  <div class="icon-circle icon-4"></div>
+                  <h3>4. Styling, Finishing & Project Handover</h3>
+                  <p>We style your space with thoughtful final touches, ensuring every detail is in place before the perfect handover of your ready-to-live space.</p>
+                </div>
+            
+              </div>
+        </div>
+    </section>
+
+    <section class="why-choose-us">
+        <div class="content-wrapper">
+            <h2>Why Choose Us</h2>
+            <div class="features-grid">
+                <!-- Top Row -->
+                <div class="feature-box">
+                    <div class="icon">🏆</div>
+                    <h3>No Hidden Costs</h3>
+                    <p>Transparent pricing with no surprises—what you see is what you pay.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="icon">⭐</div>
+                    <h3>10-Year Warranty*</h3>
+                    <p>Enjoy peace of mind with our long-term warranty on all services.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="icon">🏠</div>
+                    <h3>45-day Move-in Guarantee*</h3>
+                    <p>We promise a swift, hassle-free move-in within 45 days.</p>
+                </div>
+                
+                <!-- Bottom Row -->
+                <div class="feature-box">
+                    <div class="icon">✓</div>
+                    <h3>150 Quality Checks*</h3>
+                    <p>Rigorous inspections ensure the highest standards in every project.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="icon">👥</div>
+                    <h3>500+ Happy Clients</h3>
+                    <p>Join our growing family of satisfied clients across the country.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="icon">📍</div>
+                    <h3>Karnataka and Andhra Pradesh</h3>
+                    <p>Our trusted services are available in over 10 cities nationwide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="testimonials-section">
         <h2>Here's What Our Clients Say</h2>
         <div class="testimonials-slider">
@@ -232,7 +288,7 @@
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="testimonial-card">
+                        <div class="testimonial-card"></div>
                             <p class="testimonial-text">"We are extremely happy with how everything turned out. WC Decor's commitment to quality and perfection reflects beautifully in every corner of our home."</p>
                             <div class="testimonial-author">
                                 <h4>Vikram Shetty</h4>
@@ -283,7 +339,7 @@
         
         <div class="contact-container">
             <div class="contact-info">
-                <h3>Contact</h3>
+                <h3>Contact Information</h3>
                 <div class="info-item">
                     <i class="phone-icon">📞</i>
                     <p>+91 8310357244 || 8197340090</p>
@@ -296,46 +352,25 @@
                     <i class="location-icon">📍</i>
                     <p>Ramasagara Rd, Muthanallur, Bengaluru, Karnataka 560099</p>
                 </div>
-                
-                <div class="contact-map">
-                    <iframe 
-                        src="https://www.google.com/maps/place/Ramasagara+Rd,+Bengaluru,+Karnataka+560099/@12.8401221,77.7262979,97m/data=!3m1!1e3!4m6!3m5!1s0x3bae6dbc3067bd35:0xfd8af8058a31d80!8m2!3d12.8401369!4d77.726617!16s%2Fg%2F11fjn5wpp9?entry=ttu&g_ep=EgoyMDI1MDQwOC4wIKXMDSoASAFQAw%3D%3D"
-                        width="100%" 
-                        height="300" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy">
-                    </iframe>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61574917359851" target="_blank" class="social-icon facebook">
+                        <img src="Assets/facebook.png" alt="Facebook"> <!-- Ensure this file exists -->
+                    </a>
+                    <a href="https://www.instagram.com/woodcraftdecor.wc/" target="_blank" class="social-icon instagram">
+                        <img src="Assets/instagram.png" alt="Instagram"> <!-- Ensure this file exists -->
+                    </a>
                 </div>
             </div>
-
-            <form class="contact-form">
-                <div class="form-row">
-                    <div class="form-group">
-                        <input type="text" placeholder="First Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" placeholder="Last Name" required>
-                    </div>
-                </div>
-                <input type="email" placeholder="Email" required>
-                <input type="text" placeholder="Subject" required>
-                <textarea rows="4" placeholder="Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
+            <div class="contact-map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3368.3362716363818!2d77.72404207431676!3d12.840142117748343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae6dbc3067bd35%3A0xfd8af8058a31d80!2sRamasagara%20Rd%2C%20Bengaluru%2C%20Karnataka%20560099!5e1!3m2!1sen!2sin!4v1744392909246!5m2!1sen!2sin"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="social-links">
-            <a href="#" aria-label="Facebook">📱</a>
-            <a href="#" aria-label="Instagram">📸</a>
-            <a href="#" aria-label="Twitter">🐦</a>
-        </div>
-        <p>&copy; 2024 Design Studio. All rights reserved.</p>
-    </footer>
-
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/grid-animation.js"></script>
+    <script src="js/scroll-animations.js"></script>
 </body>
 </html>
