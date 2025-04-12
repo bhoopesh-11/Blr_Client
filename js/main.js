@@ -91,20 +91,3 @@ document.addEventListener('DOMContentLoaded', () => {
     body.classList.add(`${savedTheme}-theme`);
     switchLogo(savedTheme === 'dark');
 });
-
-// Mobile Menu
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const navLinks = document.querySelector('.nav-links');
-
-mobileMenuBtn.addEventListener('click', () => {
-    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-});
-
-// Close menu when clicking a link
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        if (window.innerWidth <= 768) {
-            navLinks.style.display = 'none';
-        }
-    });
-});
