@@ -43,51 +43,51 @@ const swiper = new Swiper(".mySwiper", {
 // Initialize Testimonials Swiper
 const testimonialSwiper = new Swiper(".testimonialSwiper", {
     slidesPerView: 1,
-    spaceBetween: 30,
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-    },
-    effect: "fade",
-    fadeEffect: {
-        crossFade: true
-    },
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
     loop: true,
-    speed: 800,
+    autoplay: {
+        delay: 5000, // 5 seconds delay between slides
+        disableOnInteraction: false, // Continue autoplay after user interaction
+    },
+    effect: "slide", // Changed from fade to slide for better transition
+    speed: 1000, // Transition speed in milliseconds
+    navigation: {
+        nextEl: ".testimonials-slider .swiper-button-next",
+        prevEl: ".testimonials-slider .swiper-button-prev",
+    }
+});
+
+// Add functionality to "View All Reviews" button
+document.querySelector(".view-all-reviews-btn").addEventListener("click", () => {
+    window.location.href = "#contact"; // Redirect to the contact section or another page
 });
 
 // Theme Toggle
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 const logo = document.querySelector('.company-logo');
-const darkLogoSrc = logo.getAttribute('data-logo-dark');
-const lightLogoSrc = 'Assets/logo-black.png';
+const darkLogoPath = logo.getAttribute('data-logo-dark');
+const lightLogoPath = logo.src;
 
-function switchLogo(isDark) {
-    logo.src = isDark ? darkLogoSrc : lightLogoSrc;
-}
-
-themeToggle.addEventListener('click', () => {
-    if (body.classList.contains('light-theme')) {
+function updateTheme(theme) {
+    if (theme === 'dark') {
         body.classList.remove('light-theme');
         body.classList.add('dark-theme');
-        localStorage.setItem('theme', 'dark');
-        switchLogo(true);
+        logo.src = darkLogoPath;
     } else {
         body.classList.remove('dark-theme');
         body.classList.add('light-theme');
-        localStorage.setItem('theme', 'light');
-        switchLogo(false);
+        logo.src = lightLogoPath;
     }
+}
+
+themeToggle.addEventListener('click', () => {
+    const newTheme = body.classList.contains('light-theme') ? 'dark' : 'light';
+    updateTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
 });
 
 // Load saved theme
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'light';
-    body.classList.add(`${savedTheme}-theme`);
-    switchLogo(savedTheme === 'dark');
+    updateTheme(savedTheme);
 });
