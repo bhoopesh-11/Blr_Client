@@ -61,33 +61,7 @@ document.querySelector(".view-all-reviews-btn").addEventListener("click", () => 
     window.location.href = "#contact"; // Redirect to the contact section or another page
 });
 
-// Theme Toggle
-const themeToggle = document.getElementById('theme-toggle');
-const body = document.body;
+// Remove theme toggle code
 const logo = document.querySelector('.company-logo');
-const darkLogoPath = logo.getAttribute('data-logo-dark');
 const lightLogoPath = logo.src;
-
-function updateTheme(theme) {
-    if (theme === 'dark') {
-        body.classList.remove('light-theme');
-        body.classList.add('dark-theme');
-        logo.src = darkLogoPath;
-    } else {
-        body.classList.remove('dark-theme');
-        body.classList.add('light-theme');
-        logo.src = lightLogoPath;
-    }
-}
-
-themeToggle.addEventListener('click', () => {
-    const newTheme = body.classList.contains('light-theme') ? 'dark' : 'light';
-    updateTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-});
-
-// Load saved theme
-document.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    updateTheme(savedTheme);
-});
+logo.src = lightLogoPath;
