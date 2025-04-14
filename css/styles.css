@@ -1603,28 +1603,34 @@ social-icon img {
 
 .brochure-section {
     text-align: center;
-    padding: 4rem 2rem;
+    padding: 4rem 0; /* Removed horizontal padding */
     background-color: var(--card-bg-light);
+    width: 100vw; /* Full viewport width */
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    max-width: 100vw;
 }
 
 .brochure-container {
-    max-width: 1000px;
-    margin: 2rem auto;
+    width: 100%; /* Full width */
+    margin: 0; /* Removed all margins */
     background: white;
-    padding: 1rem;
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 6px var(--shadow-light);
-    height: 600px;
+    padding: 0;
+    height: 800px;
     overflow: hidden;
 }
 
 .brochure-container embed {
-    border-radius: var(--border-radius);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
 @media (max-width: 768px) {
     .brochure-container {
-        height: 400px;
+        height: 500px;
     }
 }
