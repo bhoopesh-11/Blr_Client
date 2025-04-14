@@ -1600,3 +1600,31 @@ social-icon img {
         padding: 1rem;
     }
 }
+
+.brochure-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: var(--card-bg-light);
+}
+
+.brochure-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    background: white;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px var(--shadow-light);
+    height: 600px;
+    overflow: hidden;
+}
+
+.brochure-container embed {
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .brochure-container {
+        height: 400px;
+    }
+}
