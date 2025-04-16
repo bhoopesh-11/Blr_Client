@@ -1237,7 +1237,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .review-card {
     background: var(--card-bg-light);  /* Changed from rgba */
-    padding: 3rem;  /* Increased padding */
+    padding: 0.5rem;  /* Increased padding */
     border-radius: var(--border-radius);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease;
@@ -1542,7 +1542,7 @@ social-icon img {
 
 .review-card {
     background: rgba(255, 255, 255, 0.8);
-    padding: 2.5rem;
+    padding: 0.5rem;    
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
