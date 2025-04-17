@@ -12,6 +12,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 100px; /* This accounts for the fixed navbar */
 }
 
 body {
@@ -282,6 +283,8 @@ section {
     transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, opacity 0.8s ease-out, transform 0.8s ease-out;
     min-height: fit-content;
     will-change: opacity, transform;
+    scroll-margin-top: 100px; /* This helps with precise scroll positioning */
+    transition: opacity 0.3s ease-in-out;
 }
 
 /* Reset any default section styles for hero section */
@@ -294,17 +297,48 @@ section#home {
     background: none;
 }
 
+section:target {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0.5;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Rest of your CSS remains the same */
+.services-section {
+    text-align: center;
+    padding: 4rem 0;
+    width: 100%;
+}
+
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.25rem; /* Reduced gap for better fit */
-    margin-top: 2rem;
-    overflow-x: auto;
-    padding-bottom: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    width: 90%; /* Reduced from 100% to create some space on sides */
+    margin: 0 auto; /* Center the grid */
+    max-width: 1200px; /* Maximum width to maintain consistency */
 }
 
 .service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.service-card {
+    overflow: hidden; /* Ensure content doesn't cause scrolling */
     padding: 1.25rem; /* Reduced padding */
     border-radius: var(--border-radius);
     background: var(--card-bg-light);
@@ -569,15 +603,16 @@ section#home {
 }
 
 .contact-map {
-    margin-top: 3rem;
+    margin-top: 0rem;
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    height: 550px;
 }
 
 .contact-map iframe {
     width: 100%;
-    height: 350px;  /* Taller map */
+    height: 550px;  /* Taller map */
     border: none;
     border-radius: var(--border-radius);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -1119,7 +1154,7 @@ li {
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    cursor: pointer;
+    cursor: default;  /* This removes the pointer cursor */
   }
   
   .icon-circle:hover {
